@@ -24,6 +24,9 @@ df_dx # call it
 x <- seq(from = -10, to = 10, by = 0.5)
 eval(expr = df_dx)
 
+x <- 831
+eval(expr = df_dx)
+
 ```
 
 ```{r}
