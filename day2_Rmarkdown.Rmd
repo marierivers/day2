@@ -8,22 +8,30 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Derivatives in R
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+fx <- expression(x^2)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+df_dx <- D(fx, name = 'x')
 
-```{r cars}
-summary(cars)
+df_dx # call it
+
+# Evaluate the slope of f(x) at x = 831
+# x <- 831
+# evaluate over a range
+
+x <- seq(from = -10, to = 10, by = 0.5)
+eval(expr = df_dx)
+
 ```
 
-## Including Plots
+```{r}
+gt <- expression(3 * (t ^ 2) - 4 * cos(t))
 
-You can also embed plots, for example:
+dg_dt <- D(expr = gt, name = 't')
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+dg_dt
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+x_range <- seq(from = -10, to = 10, by = .5)
